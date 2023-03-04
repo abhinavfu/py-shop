@@ -1,0 +1,48 @@
+{% extends 'base.html' %} {% load static %} {% block userprofile %}
+<div>Welcome User {{user}}</div>
+
+<form action="" method="POST" enctype="multipart/form-data">
+  {% csrf_token %}
+  <div id="signup">
+    <div>
+      <h1>Edit Information</h1>
+    </div>
+    <div class="input-field">
+      <input
+        name="fname"
+        type="text"
+        required
+        id="fname"
+        value="{{user.name}}"
+      />
+      <label htmlFor="fname">Name</label>
+      <p id="fnameerror" class="error"></p>
+    </div>
+    <div class="input-field">
+      <input
+        name="email"
+        type="email"
+        required
+        id="email"
+        value="{{user.email}}"
+      />
+      <label htmlFor="email">E-mail I'd</label>
+      <p id="usererror" class="error"></p>
+    </div>
+    <div class="input-field">
+      <select name="user" id="user">
+        <option value="Buyer">Buyer</option>
+        <option value="Seller">Seller</option>
+      </select>
+    </div>
+    <div class="input-field">
+      <input name="pic" type="file" required id="pic" />
+      <label htmlFor="pic">Profile Pic</label>
+    </div>
+    <div id="submit">
+      <button type="submit" class="btn-search">Update Info</button>
+    </div>
+  </div>
+</form>
+
+{% block addproduct %}{% endblock %}{% endblock %}

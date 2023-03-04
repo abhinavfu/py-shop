@@ -1,0 +1,45 @@
+{% extends 'base.html' %} {% load static %} {% block payment %}
+<div class="payment">
+  <div class="pay-method">
+    Credit card
+    <form class="pay-card">
+      <div class="input-field">
+        <input type="text" name="card-name" id="card-name" required />
+        <label htmlFor="card-name">Card Holder Name</label>
+        <p id="name-error" class="error"></p>
+      </div>
+      <div class="input-field">
+        <input type="number" name="card-number" id="card-number" required />
+        <label htmlFor="card-number">Card Number</label>
+        <p id="card-error" class="error"></p>
+      </div>
+      <div class="input-field">
+        <input
+          type="text"
+          name="card-date"
+          id="card-date"
+          placeholder=""
+          required
+        />
+        <label htmlFor="card-date">Expiry Date</label>
+        <p id="date-error" class="error"></p>
+      </div>
+      <div class="input-field">
+        <input type="number" name="card-cvv" id="card-cvv" required />
+        <label htmlFor="card-cvv">CVV</label>
+        <p id="cvv-error" class="error"></p>
+      </div>
+      <button type="submit" class="pay-btn">
+        Proceed to pay {{currency}}{{amountTotal}}
+      </button>
+    </form>
+  </div>
+  <div class="pay-amount">
+    Your order on e-shop.com
+    <div>
+      <h3>TO PAY</h3>
+      <div class="amount">{{currency}}{{amountTotal}}</div>
+    </div>
+  </div>
+</div>
+{% endblock %}
